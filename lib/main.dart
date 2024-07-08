@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _controller = ConfettiController();
+  final _controller = ConfettiController(duration: const Duration(seconds: 5));
   bool isPlaying = false;
   Random random = Random();
   int x = 0;
@@ -28,6 +28,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
@@ -113,7 +114,7 @@ class _MyAppState extends State<MyApp> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            x = random.nextInt(7);
+            x = random.nextInt(6);
             if (x == 5) {
               print('condition match for confetti effect ');
               _controller.play();
